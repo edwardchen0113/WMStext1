@@ -1,4 +1,11 @@
 materials = []
+with open('materials.csv','r') as f:
+	for line in f:
+		if '異動類型,儲位,料號,數量' in line:
+			continue
+		move, location, material, quantity = line.strip().split(',')
+		materials.append([move,location, material, quantity])
+
 while True:
 	move = input('請輸入異動類型：')
 	if move == 'q':
