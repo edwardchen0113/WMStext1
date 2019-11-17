@@ -1,20 +1,25 @@
 materials = []
 while True:
-	location = input('請輸入儲位：')
-	if location == 'q':
+	move = input('請輸入異動類型：')
+	if move == 'q':
 		break
 
 	while True:
-		material = input('請輸入料號：')
-		if material == 'q':
+		location = input('請輸入儲位：')
+		if location == 'q':
 			break
-		quantity = input('請輸入數量：')
-		quantity = int(quantity)
-		materials.append([location, material, quantity])
+
+		while True:
+			material = input('請輸入料號：')
+			if material == 'q':
+				break
+			quantity = input('請輸入數量：')
+			quantity = int(quantity)
+			materials.append([move,location, material, quantity])
 
 for m in materials:
-	print('儲位：', m[0], '料號：', m[1], '數量：', m[2])
+	print('異動類型：', m[0], '儲位：', m[1], '料號：', m[2], '數量：', m[3])
 
 with open('materials.csv', 'w') as f:
 	for m in materials:
-		f.write(m[0]+ ','+ m[1]+ ','+ str(m[2])+ '\n')
+		f.write(m[0]+ ','+ m[1]+ ','+ m[2]+ ','+ str(m[3])+ '\n')
