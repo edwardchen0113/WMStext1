@@ -20,6 +20,7 @@ while True:
 for m in materials:
 	print('異動類型：', m[0], '儲位：', m[1], '料號：', m[2], '數量：', m[3])
 
-with open('materials.csv', 'w') as f:
+with open('materials.csv', 'w') as f: #encoding = 'utf-8'世界語言通用編碼，防止寫成CSV檔時出現亂碼。
+	f.write('異動類型,儲位,料號,數量\n',)
 	for m in materials:
 		f.write(m[0]+ ','+ m[1]+ ','+ m[2]+ ','+ str(m[3])+ '\n')
